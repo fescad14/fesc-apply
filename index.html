@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>財宏公司消耗性用品申請單</title>
+    <style>
+        body { font-family: "Microsoft JhengHei", sans-serif; background-color: #f4f7f6; padding: 20px; line-height: 1.6; }
+        .container { max-width: 600px; margin: auto; background: white; padding: 30px; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        h2 { color: #004a99; text-align: center; margin-bottom: 5px; letter-spacing: 2px; }
+        .info-bar { text-align: center; color: #d9534f; font-weight: bold; font-size: 14px; margin-bottom: 20px; padding: 10px; border-top: 1px solid #eee; }
+        .form-group { margin-bottom: 20px; }
+        label { display: block; margin-bottom: 8px; font-weight: bold; color: #333; }
+        input, select { width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+        .item-row { display: flex; gap: 10px; margin-bottom: 15px; align-items: center; background: #f0f4f8; padding: 15px; border-radius: 8px; border-left: 5px solid #004a99; }
+        .item-name { flex: 3; } /* 用品選單加寬 */
+        .item-qty { flex: 1; }
+        .btn { padding: 10px 15px; border: none; border-radius: 4px; cursor: pointer; font-weight: bold; transition: 0.3s; }
+        .btn-add { background-color: #5cb85c; color: white; margin-bottom: 20px; width: 100%; }
+        .btn-submit { background-color: #004a99; color: white; width: 100%; font-size: 18px; margin-top: 10px; }
+        .btn-remove { background-color: #d9534f; color: white; padding: 10px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>財宏公司消耗性用品申請單</h2>
+    <div class="info-bar">如有任何疑問，請洽管理部林昆霖（分機7125）</div>
+    
+    <div class="form-group">
+        <label>申請人姓名</label>
+        <input type="text" id="userName" placeholder="請填寫全名">
+    </div>
+
+    <div class="form-group">
+        <label>所屬部門</label>
+        <select id="department">
+            <option value="">-- 請選擇部門 --</option>
+            <option value="業務部">業務部</option>
+            <option value="技術服務部">技術服務部</option>
+            <option value="資安系統部">資安系統部</option>
+            <option value="管理部">管理部</option>
+        </select>
+    </div>
+
+    <label>申請項目</label>
+    <div id="itemList">
+        <div class="item-row">
+            <select class="item-name">
+                <option value="">-- 選擇用品 --</option>
+                <option value="(A1-1)裝訂膠環(8mm)(盒)">(A1-1)裝訂膠環(8mm)（單位：盒）</option>
+                <option value="(A1-2)裝訂膠環(10mm)（盒）">(A1-2)裝訂膠環(10mm)（單位：盒）</option>
+                <option value="(A2)16格雷射標籤紙（包）">(A2)16格雷射標籤紙（單位：包）</option>
+                <option value="(A3)延長線（條）">(A3)延長線（單位：條）</option>
+                <option value="(A4)投影片（包）">(A4)投影片（單位：包）</option>
+                <option value="(A5-1)長尾夾(222B)約5.1cm（盒）">(A5-1)長尾夾(222B)約5.1cm（單位：盒）</option>
+                <option value="(A5-2)長尾夾(223B)約5.1cm（盒）">(A5-2)長尾夾(223B)約4.1cm（單位：盒）</option>
+                <option value="(A5-3)長尾夾(224B)約5.1cm（盒）">(A5-3)長尾夾(224B)約3.2cm（單位：盒）</option>
+                <option value="(A5-4)長尾夾(225B)約5.1cm（盒）">(A5-4)長尾夾(225B)約2.5cm（單位：盒）</option>
+                <option value="(A5-5)長尾夾(226B)約5.1cm（盒）">((A5-5)長尾夾(226B)約1.9cm（單位：盒）</option>
+                <option value="(A5-6)長尾夾(227B)約5.1cm（盒）">(A5-6)長尾夾(227B)約1.5cm（單位：盒）</option>
+<option value="(A6)立可帶（支）">(A6)立可帶（單位：支）</option>
+<option value="(A7)立可內帶（支）">(A7)立可內帶（單位：支）</option>
+<option value="(A8)標籤帶（盒）">(A8)標籤帶（單位：盒）</option>
+<option value="(A9)膠水（瓶）">(A9)膠水（單位：瓶）</option>
+<option value="(A10)口紅膠（盒）">(A10)口紅膠（單位：瓶）</option>
+<option value="(A11)釘書機（個）">(A11)釘書機（單位：個）</option>
+<option value="(A12)訂書針（盒）">(A12)訂書針（單位：盒）</option>
+<option value="(A13)拔釘器（個）">(A13)拔釘器（單位：個）</option>
+<option value="(A14)迴紋針（大）（盒）">(A14)迴紋針（大）（單位：盒）</option>
+<option value="(A15)計算機（台）">(A15)計算機（單位：台）</option>
+<option value="(A16)剪刀（支）">(A16)剪刀（單位：支））</option>
+<option value="(A17)打印台（個）">(A17)打印台（單位：盒）</option>
+<option value="(A18)打印水（瓶）">(A18)打印水（單位：盒）</option>
+<option value="(A19)美工刀（支）">(A19)美工刀（單位：支）</option>
+<option value="(A20-1原子筆（藍）（支）">(A20)原子筆（藍）（單位：支）</option>
+<option value="(A20-2)原子筆（紅）（支）">(A20-2)原子筆（紅）（單位：支）</option>
+<option value="(A20-3)原子筆（黑）（支）">(A20-3)原子筆（黑）（單位：支）</option>
+<option value="(A21)Pentel水性筆（支）">(A21)Pentel水性筆（單位：支）</option>
+<option value="(A22)Pentel筆芯（支）">(A22)Pentel筆芯（單位：支）</option>
+<option value="(A23)油性簽字筆（支）">(A23)油性簽字筆（單位：支）</option>
+<option value="(A24)鉛筆（支）">(A24)鉛筆（單位：支4）</option>
+<option value="(A25-1)螢光筆（黃色）（支）">(A25-1)螢光筆（黃）（單位：支）</option>
+<option value="(A25-2)螢光筆（橘色）（支）">(A25-2)螢光筆（橘色）（單位：支）</option>
+<option value="(A25-3)螢光筆（藍色）（支）">(A25-3)螢光筆（藍色）（單位：支）</option>
+<option value="(A25-3)螢光筆（綠色）（支）">(A25-3)螢光筆（綠色）（單位：支）</option>
+<option value="(A26)橡皮擦（個）">(A26)橡皮擦（單位：支）</option>
+<option value="(A27-1電池（2號）（個）">(A27-1)電池（2號）（單位：支）</option>
+<option value="(A27-2)電池（3號）（個）">(A27-2)電池（3號）（單位：支）</option>
+<option value="(A27-3)電池（4號）（個）">(A27-3)電池（單位：支）</option>
+<option value="(A28)橡皮圈（包）">(A28)橡皮擦（單位：個）</option>
+<option value="(A29)四色螢光膠帶（個）">(A29)四色螢光膠帶（單位：個）</option>
+<option value="(A30)自黏貼標籤（包）">(A30)自黏貼標籤（單位：包）</option>
+<option value="(A31)抽取式標籤（包）">(A30)抽取式標籤（單位：包）</option>
+<option value="(A32-1)便條紙（大）（個）">(A32-1)便條紙（大）（單位：個）</option>
+<option value="(A32-2)便條紙（中）（個）">(A32-2)便條紙（單位：個）</option>
+<option value="(A32-3)便條紙（小）（個）">(A32-3)便條紙（小）（單位：個）</option>
+<option value="(A33)尺（支）">(A33)尺（單位：個）</option>
+<option value="(A34-1)白板筆（紅）（支）">(A34-1)白板筆（紅）（單位：支）</option>
+<option value="(A34-2)白板筆（藍）（支）">(A34-2)白板筆（藍）（單位：支）</option>
+<option value="(A34-3)白板筆（黑）（支）">(A34-3)白板筆（黑）（單位：支）</option>
+<option value="(A34-4)白板筆（綠）（支）">(A34-4)白板筆（綠）（單位：支）</option>
+<option value="(A34-5)白板筆（紫）（支）">(A34-5)白板筆（紫）（單位：支）</option>
+<option value="(A34-6)白板筆（橘）（支）">(A34-6)白板筆（橘）（單位：支）</option>
+<option value="(A35)白板擦（支）">(A35)白板擦（單位：支）</option>
+<option value="(A36)泡棉膠（捲）">(A36)泡棉膠（單位：捲）</option>
+<option value="(A37)膠帶（寬版）（捲）">(A37)膠帶（寬版）（單位：捲）</option>
+<option value="(A38)膠帶（窄版）（捲）">(A37)膠帶（窄版）（單位：捲）</option>
+<option value="(A40)強力膠（罐）">(A40)強力膠（單位：罐）</option>
+<option value="(A41)分類紙（包）">(A40)分類紙（單位：包）</option>
+<option value="(A42)11孔內頁袋（個）">(A42)11孔內頁袋（單位：罐）</option>
+<option value="(A45)L資料夾（個）">(A45)L資料夾（單位：個）</option>
+<option value="(A46)彩色碳粉匣（個）">(A46)彩色碳粉匣（單位：個）</option>
+<option value="(A48)筆筒（個）">(A48)筆筒（單位：個）</option>
+<option value="(A51隱形膠帶)（捲）">(A51)隱形膠帶（單位：捲）</option>
+<option value="(A52)識別證夾（個）">(A52)識別證夾（單位：個）</option>
+<option value="(A53)布膠帶（捲）">(A53)布膠帶（單位：捲）</option>
+<option value="(A54)雷射標籤紙CD專用（包）">(A54)雷射標籤紙CD專用（單位：包）</option>
+<option value="(A55)自強夾（個）">(A55)自強夾（單位：個）</option>
+<option value="(A56)自動鉛筆（支）">(A55)自動鉛筆（單位：支）</option>
+<option value="(A57)CD光碟片（片）">(A56)CD光碟片（單位：片）</option>
+<option value="(A58)DVD光碟片（片）">(A58)DVD光碟片（單位：包）</option>
+<option value="(B1)A4影印紙（包）">(B1）A4影印紙（單位：包）</option>
+<option value="(B2)A3影印紙（包）">(B2)A3影印製（單位：包）</option>
+<option value="(B3)B4影印紙（包）">(B4)雷射標籤紙CD專用（單位：包）</option>
+<option value="(B4)A4影印紙（黃色）（包）">(B4)A4影印紙（黃色）（單位：包）</option>
+<option value="(B5)A4影印紙（藍色）（包）">(B5)A4影印紙（藍色）（單位：包）</option>
+<option value="(B6)A4影印紙（粉紅色）（包）">(B6)A4影印紙（粉紅色）（單位：包）</option>
+<option value="(B7)A4影印紙（綠色）（包）">(B7)A4影印紙（綠色）（單位：包）</option>
+<option value="(B8-1)信封（小）（個）">(B7)信封（小）（單位：個）</option>
+<option value="(B8-2)信封（中）（個）">(B7)信封（中）（單位：個）</option> 
+<option value="(B8-3)信封（大）（個）">(B7)信封（大）（單位：個）</option>
+<option value="(B8-1)信封（特大）（個）">(B7)信封（特大）（單位：個）</option>
+<option value="(C1)擦手紙（箱）">(C1)擦手紙（單位：箱）</option>
+<option value="(C2)小捲筒衛生紙（箱）">(C2)小捲筒衛生紙（單位：箱）</option>
+<option value="(C3)大垃圾袋（件）">(C3)大垃圾袋（單位：件）</option>
+<option value="(C4)洗手乳（桶）">(C4)洗手乳（單位：桶）</option>
+<option value="(C5)洗碗精（桶）">(C5)洗碗精（單位：桶）</option>
+<option value="(C6)紙杯（串）">(C6)紙杯（單位：串）</option>
+
+
+            </select>
+            <input type="number" class="item-qty" placeholder="數量" min="1" value="1">
+            <button type="button" class="btn btn-remove" onclick="removeRow(this)">刪除</button>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-add" onclick="addRow()">+ 新增申請項目</button>
+    <button type="button" id="submitBtn" class="btn btn-submit" onclick="submitForm()">確認送出申請</button>
+</div>
+
+<script>
+    // 定義 HTML 選單內容，方便統一修改
+    const itemOptions = `
+        <option value="">-- 選擇用品 --</option>
+                <option value="(A1-1)裝訂膠環(8mm)(盒)">(A1-1)裝訂膠環(8mm)（單位：盒）</option>
+                <option value="(A1-2)裝訂膠環(10mm)（盒）">(A1-2)裝訂膠環(10mm)（單位：盒）</option>
+                <option value="(A2)16格雷射標籤紙（包）">(A2)16格雷射標籤紙（單位：包）</option>
+                <option value="(A3)延長線（條）">(A3)延長線（單位：條）</option>
+                <option value="(A4)投影片（包）">(A4)投影片（單位：包）</option>
+                <option value="(A5-1)長尾夾(222B)約5.1cm（盒）">(A5-1)長尾夾(222B)約5.1cm（單位：盒）</option>
+                <option value="(A5-2)長尾夾(223B)約5.1cm（盒）">(A5-2)長尾夾(223B)約4.1cm（單位：盒）</option>
+                <option value="(A5-3)長尾夾(224B)約5.1cm（盒）">(A5-3)長尾夾(224B)約3.2cm（單位：盒）</option>
+                <option value="(A5-4)長尾夾(225B)約5.1cm（盒）">(A5-4)長尾夾(225B)約2.5cm（單位：盒）</option>
+                <option value="(A5-5)長尾夾(226B)約5.1cm（盒）">((A5-5)長尾夾(226B)約1.9cm（單位：盒）</option>
+                <option value="(A5-6)長尾夾(227B)約5.1cm（盒）">(A5-6)長尾夾(227B)約1.5cm（單位：盒）</option>
+<option value="(A6)立可帶（支）">(A6)立可帶（單位：支）</option>
+<option value="(A7)立可內帶（支）">(A7)立可內帶（單位：支）</option>
+<option value="(A8)標籤帶（盒）">(A8)標籤帶（單位：盒）</option>
+<option value="(A9)膠水（瓶）">(A9)膠水（單位：瓶）</option>
+<option value="(A10)口紅膠（盒）">(A10)口紅膠（單位：瓶）</option>
+<option value="(A11)釘書機（個）">(A11)釘書機（單位：個）</option>
+<option value="(A12)訂書針（盒）">(A12)訂書針（單位：盒）</option>
+<option value="(A13)拔釘器（個）">(A13)拔釘器（單位：個）</option>
+<option value="(A14)迴紋針（大）（盒）">(A14)迴紋針（大）（單位：盒）</option>
+<option value="(A15)計算機（台）">(A15)計算機（單位：台）</option>
+<option value="(A16)剪刀（支）">(A16)剪刀（單位：支））</option>
+<option value="(A17)打印台（個）">(A17)打印台（單位：盒）</option>
+<option value="(A18)打印水（瓶）">(A18)打印水（單位：盒）</option>
+<option value="(A19)美工刀（支）">(A19)美工刀（單位：支）</option>
+<option value="(A20-1原子筆（藍）（支）">(A20)原子筆（藍）（單位：支）</option>
+<option value="(A20-2)原子筆（紅）（支）">(A20-2)原子筆（紅）（單位：支）</option>
+<option value="(A20-3)原子筆（黑）（支）">(A20-3)原子筆（黑）（單位：支）</option>
+<option value="(A21)Pentel水性筆（支）">(A21)Pentel水性筆（單位：支）</option>
+<option value="(A22)Pentel筆芯（支）">(A22)Pentel筆芯（單位：支）</option>
+<option value="(A23)油性簽字筆（支）">(A23)油性簽字筆（單位：支）</option>
+<option value="(A24)鉛筆（支）">(A24)鉛筆（單位：支4）</option>
+<option value="(A25-1)螢光筆（黃色）（支）">(A25-1)螢光筆（黃）（單位：支）</option>
+<option value="(A25-2)螢光筆（橘色）（支）">(A25-2)螢光筆（橘色）（單位：支）</option>
+<option value="(A25-3)螢光筆（藍色）（支）">(A25-3)螢光筆（藍色）（單位：支）</option>
+<option value="(A25-3)螢光筆（綠色）（支）">(A25-3)螢光筆（綠色）（單位：支）</option>
+<option value="(A26)橡皮擦（個）">(A26)橡皮擦（單位：支）</option>
+<option value="(A27-1電池（2號）（個）">(A27-1)電池（2號）（單位：支）</option>
+<option value="(A27-2)電池（3號）（個）">(A27-2)電池（3號）（單位：支）</option>
+<option value="(A27-3)電池（4號）（個）">(A27-3)電池（單位：支）</option>
+<option value="(A28)橡皮圈（包）">(A28)橡皮擦（單位：個）</option>
+<option value="(A29)四色螢光膠帶（個）">(A29)四色螢光膠帶（單位：個）</option>
+<option value="(A30)自黏貼標籤（包）">(A30)自黏貼標籤（單位：包）</option>
+<option value="(A31)抽取式標籤（包）">(A30)抽取式標籤（單位：包）</option>
+<option value="(A32-1)便條紙（大）（個）">(A32-1)便條紙（大）（單位：個）</option>
+<option value="(A32-2)便條紙（中）（個）">(A32-2)便條紙（單位：個）</option>
+<option value="(A32-3)便條紙（小）（個）">(A32-3)便條紙（小）（單位：個）</option>
+<option value="(A33)尺（支）">(A33)尺（單位：個）</option>
+<option value="(A34-1)白板筆（紅）（支）">(A34-1)白板筆（紅）（單位：支）</option>
+<option value="(A34-2)白板筆（藍）（支）">(A34-2)白板筆（藍）（單位：支）</option>
+<option value="(A34-3)白板筆（黑）（支）">(A34-3)白板筆（黑）（單位：支）</option>
+<option value="(A34-4)白板筆（綠）（支）">(A34-4)白板筆（綠）（單位：支）</option>
+<option value="(A34-5)白板筆（紫）（支）">(A34-5)白板筆（紫）（單位：支）</option>
+<option value="(A34-6)白板筆（橘）（支）">(A34-6)白板筆（橘）（單位：支）</option>
+<option value="(A35)白板擦（支）">(A35)白板擦（單位：支）</option>
+<option value="(A36)泡棉膠（捲）">(A36)泡棉膠（單位：捲）</option>
+<option value="(A37)膠帶（寬版）（捲）">(A37)膠帶（寬版）（單位：捲）</option>
+<option value="(A38)膠帶（窄版）（捲）">(A37)膠帶（窄版）（單位：捲）</option>
+<option value="(A40)強力膠（罐）">(A40)強力膠（單位：罐）</option>
+<option value="(A41)分類紙（包）">(A40)分類紙（單位：包）</option>
+<option value="(A42)11孔內頁袋（個）">(A42)11孔內頁袋（單位：罐）</option>
+<option value="(A45)L資料夾（個）">(A45)L資料夾（單位：個）</option>
+<option value="(A46)彩色碳粉匣（個）">(A46)彩色碳粉匣（單位：個）</option>
+<option value="(A48)筆筒（個）">(A48)筆筒（單位：個）</option>
+<option value="(A51隱形膠帶)（捲）">(A51)隱形膠帶（單位：捲）</option>
+<option value="(A52)識別證夾（個）">(A52)識別證夾（單位：個）</option>
+<option value="(A53)布膠帶（捲）">(A53)布膠帶（單位：捲）</option>
+<option value="(A54)雷射標籤紙CD專用（包）">(A54)雷射標籤紙CD專用（單位：包）</option>
+<option value="(A55)自強夾（個）">(A55)自強夾（單位：個）</option>
+<option value="(A56)自動鉛筆（支）">(A55)自動鉛筆（單位：支）</option>
+<option value="(A57)CD光碟片（片）">(A56)CD光碟片（單位：片）</option>
+<option value="(A58)DVD光碟片（片）">(A58)DVD光碟片（單位：包）</option>
+<option value="(B1)A4影印紙（包）">(B1）A4影印紙（單位：包）</option>
+<option value="(B2)A3影印紙（包）">(B2)A3影印製（單位：包）</option>
+<option value="(B3)B4影印紙（包）">(B4)雷射標籤紙CD專用（單位：包）</option>
+<option value="(B4)A4影印紙（黃色）（包）">(B4)A4影印紙（黃色）（單位：包）</option>
+<option value="(B5)A4影印紙（藍色）（包）">(B5)A4影印紙（藍色）（單位：包）</option>
+<option value="(B6)A4影印紙（粉紅色）（包）">(B6)A4影印紙（粉紅色）（單位：包）</option>
+<option value="(B7)A4影印紙（綠色）（包）">(B7)A4影印紙（綠色）（單位：包）</option>
+<option value="(B8-1)信封（小）（個）">(B7)信封（小）（單位：個）</option>
+<option value="(B8-2)信封（中）（個）">(B7)信封（中）（單位：個）</option> 
+<option value="(B8-3)信封（大）（個）">(B7)信封（大）（單位：個）</option>
+<option value="(B8-1)信封（特大）（個）">(B7)信封（特大）（單位：個）</option>
+<option value="(C1)擦手紙（箱）">(C1)擦手紙（單位：箱）</option>
+<option value="(C2)小捲筒衛生紙（箱）">(C2)小捲筒衛生紙（單位：箱）</option>
+<option value="(C3)大垃圾袋（件）">(C3)大垃圾袋（單位：件）</option>
+<option value="(C4)洗手乳（桶）">(C4)洗手乳（單位：桶）</option>
+<option value="(C5)洗碗精（桶）">(C5)洗碗精（單位：桶）</option>
+<option value="(C6)紙杯（串）">(C6)紙杯（單位：串）</option>
+
+    `;
+
+    function addRow() {
+        const itemList = document.getElementById('itemList');
+        const newRow = document.createElement('div');
+        newRow.className = 'item-row';
+        newRow.innerHTML = `
+            <select class="item-name">${itemOptions}</select>
+            <input type="number" class="item-qty" placeholder="數量" min="1" value="1">
+            <button type="button" class="btn btn-remove" onclick="removeRow(this)">刪除</button>
+        `;
+        itemList.appendChild(newRow);
+    }
+
+    function removeRow(btn) { 
+        const rows = document.querySelectorAll('.item-row');
+        if (rows.length > 1) { btn.parentElement.remove(); }
+        else { alert("申請單需至少保留一項用品。"); }
+    }
+
+    async function submitForm() {
+        const name = document.getElementById('userName').value;
+        const dept = document.getElementById('department').value;
+        const items = [];
+        
+        document.querySelectorAll('.item-row').forEach(row => {
+            const itemName = row.querySelector('.item-name').value;
+            const itemQty = row.querySelector('.item-qty').value;
+            if (itemName && itemQty) {
+                // 這裡的 itemName 已經包含單位了，例如 "紙 (包)"
+                items.push({ name: itemName, qty: itemQty });
+            }
+        });
+
+        if (!name || !dept || items.length === 0) { 
+            alert("請完整填寫姓名、部門並選擇項目。"); 
+            return; 
+        }
+
+        const scriptUrl = 'https://script.google.com/macros/s/AKfycbx0zp5tqdg-frvgbK2_zXYh60BsdIqi-oCU8om3DyRWS5dB9mwg6-F9asZr5WRiGYHw/exec'; 
+
+        const btn = document.getElementById('submitBtn');
+        btn.disabled = true;
+        btn.innerText = "傳送中...";
+
+        try {
+            await fetch(scriptUrl, { 
+                method: 'POST', 
+                mode: 'no-cors', 
+                body: JSON.stringify({ name, dept, items }) 
+            });
+            alert("申請已成功送出！通知已寄送至林昆霖信箱。");
+            location.reload();
+        } catch (e) {
+            alert("錯誤：" + e);
+            btn.disabled = false;
+        }
+    }
+</script>
+</body>
+</html>
